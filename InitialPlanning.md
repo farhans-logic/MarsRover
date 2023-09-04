@@ -32,5 +32,6 @@
 
 ### UML Diagram
 
-![](D:\Downloads2\MarRoverUMLv1.jpg)
+![MarRoverUMLv1.jpg](MarRoverUMLv1.jpg)
+
 
