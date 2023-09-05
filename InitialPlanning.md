@@ -25,9 +25,12 @@
 
 #### Program Input Requirements
 - First line Input max plateau grid co-ordinates with 0,0 assumed to be min
-- Subsequent lines if inputs grouped by 2 lines of instructions 
+- Subsequent lines of inputs grouped by 2 lines of instructions 
   - Fist line is rover position x, y  co-ordinates within the grid and the compass facing direction
   - Second line is the sequence of movement instructions as string of letters
+ 
+#### Output Requirements
+- Show current location CoOrdinates and Compass Heading
 
 
 ### UML Diagram
