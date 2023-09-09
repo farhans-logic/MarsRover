@@ -61,7 +61,7 @@ public abstract class Vehicle {
 
     public abstract void rotate(Command command);
 
-    protected void turnLeft() {
+    public void turnLeft() {
         switch (getLocation().getCurrentHeading()) {
             case NORTH:
                 getLocation().updateCurrentHeading(Heading.WEST);
@@ -80,7 +80,7 @@ public abstract class Vehicle {
         }
     }
 
-    protected void turnRight() {
+    public void turnRight() {
         switch (getLocation().getCurrentHeading()) {
             case NORTH:
                 getLocation().updateCurrentHeading(Heading.EAST);

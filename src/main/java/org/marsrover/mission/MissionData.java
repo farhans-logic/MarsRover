@@ -6,12 +6,9 @@ import org.marsrover.location.Heading;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.marsrover.mission.MissionDataUtils.*;
+
 public class MissionData {
-
-    public final int FIRST_VALUE = 0;
-    public final int SECOND_VALUE = 1;
-    public final int THIRD_VALUE = 2;
-
 
     private Coordinates maxSurFaceCoordinates;
 
@@ -58,24 +55,6 @@ public class MissionData {
 
     public List<Character> getMissionCommandList() {
         return missionCommandList;
-    }
-
-    private Coordinates extractCoordsFromData(String data) {
-        String[] values = transformStringDataInputToArray(data);
-        int xAxis = Integer.parseInt(values[FIRST_VALUE]);
-        int yAxis = Integer.parseInt(values[SECOND_VALUE]);
-        return new Coordinates(xAxis, yAxis);
-    }
-
-    private char extractHeadingCharFromData(String data) {
-        String[] values = transformStringDataInputToArray(data);
-        return values[THIRD_VALUE].charAt(FIRST_VALUE);
-    }
-
-    private String[] transformStringDataInputToArray(String data) {
-        return data.trim()
-                .replace(" ", "")
-                .split("");
     }
 
     @Override

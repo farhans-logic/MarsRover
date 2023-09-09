@@ -9,6 +9,7 @@ import java.util.List;
 public class Rover extends Vehicle {
 
     public Rover(String roverName) {
+
         super(roverName);
     }
 
@@ -81,8 +82,10 @@ public class Rover extends Vehicle {
         switch (command) {
             case LEFT:
                 turnLeft();
+                break;
             case RIGHT:
                 turnRight();
+                break;
         }
     }
 

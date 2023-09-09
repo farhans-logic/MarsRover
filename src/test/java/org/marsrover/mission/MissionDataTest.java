@@ -10,6 +10,7 @@ import org.marsrover.location.Coordinates;
 import org.marsrover.location.Heading;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class MissionDataTest {
@@ -80,11 +81,5 @@ class MissionDataTest {
 
         assertEquals(expectedList, testMissionDataObj.getMissionCommandList());
         assertEquals(expectedList.size(), testMissionDataObj.getMissionCommandList().size());
-    }
-
-    @Test
-    void testTransformStringIntsToCoordsUtilityMethod() {
-        String testInputCoords = "2 3";
-
     }
 }
