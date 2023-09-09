@@ -10,7 +10,7 @@ public class MissionData {
 
     public final int FIRST_VALUE = 0;
     public final int SECOND_VALUE = 1;
-    public final int THIRD_VALUE = 3;
+    public final int THIRD_VALUE = 2;
 
 
     private Coordinates maxSurFaceCoordinates;
