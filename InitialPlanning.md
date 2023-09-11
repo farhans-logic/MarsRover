@@ -35,6 +35,6 @@
 
 ### UML Diagram
 
-![MarRoverUMLv1.jpg](MarRoverUMLv1.jpg)
+![MarRoverUMLv1.jpg](MarsRoverUMLv1.jpg)
 
 

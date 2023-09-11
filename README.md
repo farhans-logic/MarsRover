@@ -24,3 +24,4 @@ successfully deployed.
 - A reasonable degree of user input validation exists but some edge cases can break the control flow.
 - Further improvements/enhancements are indicated in the TODOs throughout the application.
 - Some extended functionality has be added but is an incomplete feature for future releases.
+- MarsRoverUMLv2.jpg is a generated overview UML diagram of the application in its current form.
