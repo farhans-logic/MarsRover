@@ -1,27 +1,86 @@
-# Mars Rover
+# Mars Rover Mission Control
 
-## User Guide
+The Mars Rover Mission Control application is designed to control and manage missions for Mars rovers. This application
+allows users to create and manage missions, deploy rovers, and issue commands to navigate the rovers on the Martian
+surface.
 
-1. Run the command line interface from src/main/java/org/marsrover/App.java
-2. Once mission control has loaded, a mission will be created.
-3. Enter the mission name when prompted.
-4. Enter the mission data in the specified format, example:
-    - line 1: 3 3
-    - line 2: 2 2 W
-    - line 3: LLRRMMRRMM
-5. Once data is input, further data can be entered by answering Y/N on the prompt.
-6. Each set of 3 lines of data will assign a new rover to the mission.
-7. Once no more data is entered by indicating N on the prompt, the mission will start.
-8. Each rover will be deployed to the surface based on the given coordinates.
-9. It is assumed that the navigable surface includes the zero x-axis and y-axis points.
-10. The system will not prevent the rover being deployed outside the navigable surface.
-11. The system will provide an alert if a rover is deployed outside the surface and is lost.
-12. The system will prevent the rover from moving outside the navigable surface once it is
-successfully deployed. 
-13. The final location of each rover will be displayed once a successful mission is complete.
-14. Once the entire mission is complete, another mission can be started from the prompt.
+## Table of Contents
 
-- A reasonable degree of user input validation exists but some edge cases can break the control flow.
-- Further improvements/enhancements are indicated in the TODOs throughout the application.
-- Some extended functionality has be added but is an incomplete feature for future releases.
-- MarsRoverUMLv2.jpg is a generated overview UML diagram of the application in its current form.
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Components](#components)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+The Mars Rover Mission Control application is a Java-based program that simulates the control and operation of Mars
+rovers on the Martian surface. It includes several classes and components to handle various aspects of mission control,
+rover movement, and surface navigation.
+
+## Getting Started
+
+### Prerequisites
+
+Before running the Mars Rover Mission Control application, ensure you have the following prerequisites installed:
+
+- Java Development Kit (JDK) 8 or higher
+
+## Usage
+
+The Mars Rover Mission Control application provides a command-line interface (CLI) for interacting with the system.
+Follow these steps to use the application:
+
+1. Launch the application by running `org.marsrover.App`.
+
+2. Create a new mission by entering a mission name.
+
+3. Enter the maximum exploratory coordinates for the mission in the format `X Y`, e.g., `10 10`.
+
+4. Deploy a rover by specifying its initial location in the format `X Y H`, where `X` and `Y` are coordinates, and `H`
+   is the heading (N, W, S, or E).
+
+5. Issue commands to the rover using a sequence of letters (L, R, and M) to rotate left, rotate right, and move forward,
+   respectively.
+
+6. View the current location of the rover after executing commands.
+
+7. Optionally continue commanding the vehicle, create new missions.
+
+8. Exit the application when done.
+
+## Components
+
+The Mars Rover Mission Control application is structured into several packages, each containing related classes:
+
+- `org.marsrover`: Contains the main application class (`App`) for launching the program.
+
+- `org.marsrover.vehicle`: Contains classes related to Mars rovers and their movement.
+
+- `org.marsrover.location`: Contains classes for handling coordinates, headings, and rover locations.
+
+- `org.marsrover.surface`: Contains classes for defining the Martian surface and handling obstacles.
+
+- `org.marsrover.mission`: Contains classes for managing missions, mission data, and mission control.
+
+- `org.marsrover.UserInterface`: Contains the CLI interface for interacting with the application.
+
+## Contributing
+
+Contributions to the Mars Rover Mission Control application are welcome. If you would like to contribute to the project,
+please follow these steps:
+
+1. Fork the repository.
+
+2. Create a new branch for your feature or bug fix.
+
+3. Make your changes and commit them.
+
+4. Push your changes to your fork.
+
+5. Create a pull request to merge your changes into the main repository.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
