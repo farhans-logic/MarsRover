@@ -46,7 +46,7 @@ Follow these steps to use the application:
 
 6. View the current location of the rover after executing commands.
 
-7. Optionally continue commanding the vehicle, create new missions.
+7. Optionally continue commanding the vehicle or create new missions.
 
 8. Exit the application when done.
 
