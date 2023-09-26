@@ -29,7 +29,7 @@ public class MissionControlCLI {
             System.out.println();
             System.out.println("Would You Like To Start Another Mission?: Yes / No");
             System.out.println("Enter Any Key For Yes or 'N' for No");
-            newMission = sc.nextLine().equalsIgnoreCase("Y");
+            newMission = sc.nextLine().equalsIgnoreCase("N");
             System.out.println();
         } while (newMission);
     }
