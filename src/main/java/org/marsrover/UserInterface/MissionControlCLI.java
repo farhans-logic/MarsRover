@@ -53,17 +53,17 @@ public class MissionControlCLI {
         do {
             try {
                 if (!missionControl.isMissionStarted()) {
-                    System.out.println("Enter Max Explorable Coordinates For Mission: (Example format '22 33'");
+                    System.out.println("Enter Max Explorable Coordinates For Mission: (Example format '22 33')");
                     missionData.setMaxSurFaceCoordinates(sc.nextLine());
                     missionControl.startMission(missionData);
                     missionControl.addMissionRover();
                 }
 
-                System.out.println("Enter The Vehicle Deploy Location Coordinates: (Example format '11 19 N'");
+                System.out.println("Enter The Vehicle Deploy Location Coordinates: (Example format '11 19 N')");
                 missionData.setLocation(sc.nextLine().toUpperCase());
                 missionControl.deployVehicleToLocation();
 
-                System.out.println("Enter Commands To Move The Vehicle: (Example format 'LLMMRR'");
+                System.out.println("Enter Commands To Move The Vehicle: (Example format 'LLMMRR')");
                 missionData.setMissionCommands(sc.nextLine().toUpperCase());
                 missionControl.issueVehicleCommands();
 
