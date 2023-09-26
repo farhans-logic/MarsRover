@@ -5,7 +5,7 @@ import org.marsrover.location.Heading;
 
 import java.util.List;
 
-public class QuadCopter extends AerialVehicle {
+public class QuadCopter extends AerialVehicle implements Movable, Flyable {
 
     public QuadCopter(String quadCopterName) {
         super(quadCopterName);
@@ -28,6 +28,16 @@ public class QuadCopter extends AerialVehicle {
 
     @Override
     public void rotate(Command command) {
+
+    }
+
+    @Override
+    public void turnLeft() {
+
+    }
+
+    @Override
+    public void turnRight() {
 
     }
 

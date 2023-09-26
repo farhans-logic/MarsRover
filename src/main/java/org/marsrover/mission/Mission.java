@@ -1,59 +1,49 @@
 package org.marsrover.mission;
 
+import org.marsrover.surface.Surface;
 import org.marsrover.vehicle.Vehicle;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Mission {
 
-    private String missionName;
+    private final String missionName;
 
-    private List<MissionData> missionDataList;
+    private Surface surface;
 
-    private Map<String, Vehicle> missionVehicles;
-
-    public List<MissionData> getMissionDataList() {
-        return missionDataList;
-    }
-
-    public void setMissionDataList(List<MissionData> missionDataList) {
-        this.missionDataList = missionDataList;
-    }
-
-    public void updateMissionDataList(MissionData missionData) {
-        this.missionDataList.add(missionData);
-    }
-
-    public Map<String, Vehicle> getMissionVehicles() {
-        return missionVehicles;
-    }
+    private final List<Vehicle> missionVehicles;
 
     public Mission(String missionName) {
         this.missionName = missionName;
-        missionDataList = new ArrayList<>();
-        missionVehicles = new HashMap<>();
+        missionVehicles = new ArrayList<>();
     }
 
     public String getMissionName() {
         return missionName;
     }
 
-    public void setMissionName(String missionName) {
-        this.missionName = missionName;
+    public Surface getSurface() {
+        return surface;
     }
 
-    public Vehicle getMissionVehicle(String vehicleName) {
-        return missionVehicles.get(vehicleName);
+    public void setSurface(Surface surface) {
+        this.surface = surface;
     }
 
-    public void setMissionVehicles(Map<String, Vehicle> missionVehicles) {
-        this.missionVehicles = missionVehicles;
+    public Vehicle getMissionVehicle(int vehicleId) {
+        return missionVehicles.get(vehicleId);
     }
 
-    public void updateMissionVehicles(Vehicle vehicle) {
-        this.missionVehicles.put(vehicle.getVehicleName(), vehicle);
+    public void setMissionVehicle(Vehicle vehicle) {
+        if (surface != null) {
+            vehicle.setNavigableSurface(surface);
+        }
+        missionVehicles.add(vehicle);
     }
+
+    public List<Vehicle> getMissionVehicles() {
+        return missionVehicles;
+    }
+
 }

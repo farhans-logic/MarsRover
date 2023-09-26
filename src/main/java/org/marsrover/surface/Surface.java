@@ -4,15 +4,12 @@ import org.marsrover.location.Coordinates;
 
 import java.util.List;
 
-// TODO Refactor class into extendable class to create surface types
-// TODO Add child surface types for Plateaus, Plains, Terrains, Spheroids
-// TODO Add Obstacles including other vehicles on the surface
 public class Surface {
     private final Coordinates minSurfaceCoords;
 
     private final Coordinates maxSurfaceCoords;
 
-    private List<Obstacle> obstacles;
+    private List<Coordinates> obstacles;
 
     public Surface(Coordinates maxSurfaceCoords) {
         this.minSurfaceCoords = new Coordinates(0, 0);
@@ -27,15 +24,19 @@ public class Surface {
         return maxSurfaceCoords;
     }
 
-    public List<Obstacle> getObstacles() {
+    public List<Coordinates> getObstacles() {
         return obstacles;
     }
 
-    public void setObstacles(List<Obstacle> obstacles) {
+    public void setObstacles(List<Coordinates> obstacles) {
         this.obstacles = obstacles;
     }
 
-    public void updateObstacles(Obstacle obstacle) {
+    public void updateObstacles(Coordinates obstacle) {
         this.obstacles.add(obstacle);
+    }
+
+    public void removeObstacle(Coordinates obstacle) {
+        this.obstacles.remove(obstacle);
     }
 }

@@ -1,38 +1,60 @@
 package org.marsrover.mission;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.marsrover.location.Coordinates;
+import org.marsrover.surface.Surface;
+import org.marsrover.vehicle.Rover;
+import org.marsrover.vehicle.Vehicle;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class MissionTest {
+public class MissionTest {
 
-    @Test
-    void testNewMissionSsCreated() {
-        String testMissionName = "Test Mission";
-        String expected = "Test Mission";
+    private Mission mission;
 
-        Mission mission = new Mission(testMissionName);
-
-        assertEquals(expected, mission.getMissionName());
+    @BeforeEach
+    public void setUp() {
+        mission = new Mission("TestMission");
     }
 
     @Test
-    void testNewMissionHasNoVehicles() {
-        String testMissionName = "Test Mission";
-        int expected = 0;
-
-        Mission mission = new Mission(testMissionName);
-
-        assertEquals(expected, mission.getMissionVehicles().size());
+    public void testGetMissionName() {
+        assertEquals("TestMission", mission.getMissionName());
     }
 
     @Test
-    void testNewMissionHasNoMissionData() {
-        String testMissionName = "Test Mission";
-        int expected = 0;
+    public void testSetAndGetSurface() {
+        Surface surface = new Surface(new Coordinates(10, 10));
+        mission.setSurface(surface);
+        assertEquals(surface, mission.getSurface());
+    }
 
-        Mission mission = new Mission(testMissionName);
+    @Test
+    public void testSetAndGetMissionVehicle() {
+        Vehicle vehicle = new Rover();
+        mission.setMissionVehicle(vehicle);
+        assertEquals(vehicle, mission.getMissionVehicle(0));
+    }
 
-        assertEquals(expected, mission.getMissionDataList().size());
+    @Test
+    public void testSetMissionVehicleWithSurface() {
+        Surface surface = new Surface(new Coordinates(10, 10));
+        mission.setSurface(surface);
+        Vehicle vehicle = new Rover();
+        mission.setMissionVehicle(vehicle);
+        assertEquals(surface, vehicle.getNavigableSurface());
+    }
+
+    @Test
+    public void testGetMissionVehicles() {
+        Vehicle vehicle1 = new Rover();
+        Vehicle vehicle2 = new Rover();
+        mission.setMissionVehicle(vehicle1);
+        mission.setMissionVehicle(vehicle2);
+
+        assertEquals(2, mission.getMissionVehicles().size());
+        assertTrue(mission.getMissionVehicles().contains(vehicle1));
+        assertTrue(mission.getMissionVehicles().contains(vehicle2));
     }
 }

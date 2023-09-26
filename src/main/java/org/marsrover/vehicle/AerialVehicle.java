@@ -3,7 +3,7 @@ package org.marsrover.vehicle;
 public abstract class AerialVehicle extends Vehicle {
 
     public AerialVehicle(String aerialVehicleName) {
-        super(aerialVehicleName);
+        super();
     }
 
     public abstract void fly();

@@ -3,7 +3,6 @@ package org.marsrover.location;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO Refactor class to create subtypes for geo locations with 3 axis and longitude, latitude
 public class Location {
     private Coordinates currentCoordinates;
 

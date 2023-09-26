@@ -6,12 +6,7 @@ import org.marsrover.location.Location;
 
 import java.util.List;
 
-public class Rover extends Vehicle {
-
-    public Rover(String roverName) {
-
-        super(roverName);
-    }
+public class Rover extends Vehicle implements Movable {
 
     @Override
     public void actionCommands(List<Character> actionCommands) {
@@ -86,6 +81,44 @@ public class Rover extends Vehicle {
             case RIGHT:
                 turnRight();
                 break;
+        }
+    }
+
+    public void turnLeft() {
+        switch (getLocation().getCurrentHeading()) {
+            case NORTH:
+                getLocation().updateCurrentHeading(Heading.WEST);
+                break;
+            case WEST:
+                getLocation().updateCurrentHeading(Heading.SOUTH);
+                break;
+            case SOUTH:
+                getLocation().updateCurrentHeading(Heading.EAST);
+                break;
+            case EAST:
+                getLocation().updateCurrentHeading(Heading.NORTH);
+                break;
+            default:
+                throw new RuntimeException("Invalid left command");
+        }
+    }
+
+    public void turnRight() {
+        switch (getLocation().getCurrentHeading()) {
+            case NORTH:
+                getLocation().updateCurrentHeading(Heading.EAST);
+                break;
+            case EAST:
+                getLocation().updateCurrentHeading(Heading.SOUTH);
+                break;
+            case SOUTH:
+                getLocation().updateCurrentHeading(Heading.WEST);
+                break;
+            case WEST:
+                getLocation().updateCurrentHeading(Heading.NORTH);
+                break;
+            default:
+                throw new RuntimeException("Invalid right command");
         }
     }
 
