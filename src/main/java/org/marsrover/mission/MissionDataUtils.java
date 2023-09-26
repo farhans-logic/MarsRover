@@ -12,26 +12,27 @@ import java.util.List;
 
 public final class MissionDataUtils {
 
-
     public static final String ALLOWABLE_COORDINATES = "\\d+\\s+\\d+";
     public static final String ALLOWABLE_COMMANDS = "^(?i)[LRM]+$";
     public static final String ALLOWABLE_LOCATION = "\\d+ \\d+ [NWSE]";
 
     public static final int FIRST_VALUE = 0;
     public static final int SECOND_VALUE = 1;
-    public static int THIRD_VALUE = 2;
+    public static final int THIRD_VALUE = 2;
+
+    public static final String SPACE_DELIMITER = " ";
+
 
     private MissionDataUtils() {
     }
 
     public static Coordinates validateCoordinates(String coordinates) throws Exception {
-//        String ALLOWABLE_COORDINATES = "\\d+ \\d+";
 
         if (coordinates.matches(ALLOWABLE_COORDINATES)) {
 
-            String[] parts = coordinates.split(" ");
-            int xValue = Integer.parseInt(parts[0]);
-            int yValue = Integer.parseInt(parts[1]);
+            String[] values = coordinates.split(SPACE_DELIMITER);
+            int xValue = Integer.parseInt(values[FIRST_VALUE]);
+            int yValue = Integer.parseInt(values[SECOND_VALUE]);
 
             return new Coordinates(xValue, yValue);
         } else {
@@ -44,7 +45,7 @@ public final class MissionDataUtils {
 
         if (location.matches(ALLOWABLE_LOCATION)) {
 
-            String[] values = location.split(" ");
+            String[] values = location.split(SPACE_DELIMITER);
             int xValue = Integer.parseInt(values[FIRST_VALUE]);
             int yValue = Integer.parseInt(values[SECOND_VALUE]);
             char headingChar = values[THIRD_VALUE].charAt(FIRST_VALUE);
